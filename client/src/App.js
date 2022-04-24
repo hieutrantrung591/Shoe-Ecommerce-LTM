@@ -5,7 +5,7 @@ import Contact from './Contact';
 import About from './About';
 import Projects from './Projects';
 import { Routes, Route } from "react-router-dom";
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
