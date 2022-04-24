@@ -7,8 +7,8 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
     return (
-        <div class="container">
-            <footer class="py-5">
+        <footer class="pt-5 mt-auto">
+            <div class="container">
                 <div class="row">
                     <div class="col-3">
                         <h5>Support</h5>
@@ -23,7 +23,7 @@ function Footer() {
                     </div>
 
                     <div class="col-3">
-                        <h5>About Poseidon</h5>
+                        <h5>About <span class="text-red">Poseidon</span></h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="# " class="nav-link p-0 text-muted">About Us</a></li>
                             <li class="nav-item mb-2"><a href="# " class="nav-link p-0 text-muted">Contact</a></li>
@@ -47,16 +47,16 @@ function Footer() {
                     <p>&copy; POSEIDON SE, 2021. All rights reserved.</p>
                     <ul class="list-unstyled d-flex">
                         <li class="ms-3">
-                            <a class="link-dark" href="# ">
+                            <a class="link-white" href="# ">
                                 <FontAwesomeIcon icon={ faTwitter } />
                             </a>
                         </li>
-                        <li class="ms-3"><a class="link-dark" href="# "><FontAwesomeIcon icon={ faInstagram } /></a></li>
-                        <li class="ms-3"><a class="link-dark" href="# "><FontAwesomeIcon icon={ faFacebook } /></a></li>
+                        <li class="ms-3"><a class="link-white" href="# "><FontAwesomeIcon icon={ faInstagram } /></a></li>
+                        <li class="ms-3"><a class="link-white" href="# "><FontAwesomeIcon icon={ faFacebook } /></a></li>
                     </ul>
                 </div>
-            </footer>
             </div>
+        </footer>
     );
 }
 

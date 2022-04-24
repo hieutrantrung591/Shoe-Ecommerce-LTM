@@ -6,3 +6,11 @@ footer {
 footer .nav-item a {
     font-weight: 400;
 }
+
+footer h5, footer .link-white, footer p {
+    color: #fff;
+}
+
+footer .text-red {
+    color: #B90014;
+}
