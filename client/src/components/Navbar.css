@@ -1,0 +1,17 @@
+li.nav-item {
+    padding: 0.5em 1.0em;
+}
+
+.bi-bag:hover, .bi-heart:hover {
+    color: #B90014;
+}
+
+.nav-item > a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000;
+}
+
+.nav-item > a:hover {
+    color: #B90014;
+}
