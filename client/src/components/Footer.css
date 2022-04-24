@@ -1,0 +1,8 @@
+footer {
+    text-align: left;
+    background-color: #1B1B1B;
+}
+
+footer .nav-item a {
+    font-weight: 400;
+}

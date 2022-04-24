@@ -1,32 +1,45 @@
-li.nav-item {
-    padding: 0.5em 2em;
+nav li.nav-item {
+    padding: 0.5em 1.5em;
     font-size: 1.2em;
 }
 
-.bi-bag:hover, .bi-heart:hover {
+nav .bi-bag:hover, .bi-heart:hover {
     color: #B90014;
 }
 
-.nav-item > a {
+nav .nav-item > a {
     text-decoration: none;
     font-weight: 700;
     color: #000;
 }
 
-.nav-item > a:hover {
+nav .nav-item > a:hover {
     color: #B90014;
 }
 
-.input-group-text {
+nav .input-group-text {
     background-color: #fff;
     border-radius: 1rem 0 0 1rem;
     border-right: 1px solid transparent;
 }
 
-input.form-control {
-    border-radius: 0 1rem 1rem 0;
+nav input.form-control {
+    border-radius: 1rem;
+    padding-left: 3rem;
 }
 
-input.form-control:focus {
+nav input.form-control:focus {
     border-color: #B90014;
+}
+
+nav .input-search {
+    position: relative;
+    display: inline-block;
+}
+
+nav .input-icon {
+    position: absolute;
+    left: 0;
+    top: 1;
+    padding: 0 1rem;
 }

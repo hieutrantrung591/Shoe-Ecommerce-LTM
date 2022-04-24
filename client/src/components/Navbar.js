@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import logo from '../assets/image/logo/logo.png';
 import './Navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function Navbar() {
   return (
@@ -31,24 +35,19 @@ function Navbar() {
             </li>
           </ul>
 
-          <div class="d-flex align-items-center justify-content-center">
-            <form className="d-flex align-items-center form-search">
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text">
-                    <i className="bi bi-search"></i>
-                  </span>
-                </div>
-                <input type="search" className="form-control shadow-none" placeholder="Search" aria-label="Search" />
-              </div>
-              <a href="#!" className="text-white"><i className="fas fa-search ps-3"></i></a>
+          <div class="d-flex align-items-center justify-content-center flex-grow-1 input-search">
+            <form className="d-flex align-items-center form-search flex-grow-1">
+              <span className="input-icon">
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </span>
+              <input type="search" className="form-control shadow-none" placeholder="Search" aria-label="Search" />              
             </form>
 
-            <button type="button" className="btn me-2">
-              <i class="bi bi-heart"></i>
+            <button type="button" className="btn ms-2 me-2">
+              <FontAwesomeIcon icon={faHeart} />
             </button>
             <button type="button" className="btn">
-              <i class="bi bi-bag"></i>
+              <FontAwesomeIcon icon={faBagShopping} />
             </button>
           </div>          
         </div>
