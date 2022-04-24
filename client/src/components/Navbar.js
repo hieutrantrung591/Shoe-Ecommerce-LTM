@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="# ">
           <img src={logo} alt="Poseidon Logo" draggable="false" height="80"/>
         </a>
 
@@ -17,16 +17,16 @@ function Navbar() {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-3">
             <li className="nav-item p-2">
-              <Link to="/">Home</Link>  
+              <Link to="/">Men</Link>  
             </li>
             <li className="nav-item p-2">
-              <Link to="/about">About</Link>
+              <Link to="/about">Women</Link>
             </li>
             <li className="nav-item p-2">
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">Special</Link>
             </li>
             <li className="nav-item p-2">
-              <Link to="/projects">Projects</Link>
+              <Link to="/projects">Sale</Link>
             </li>
           </ul>
 
@@ -36,6 +36,13 @@ function Navbar() {
             </div>
             <a href="#!" className="text-white"><i className="fas fa-search ps-3"></i></a>
           </form>
+
+          <button type="button" className="btn">
+            <i class="bi bi-heart"></i>
+          </button>
+          <button type="button" className="btn">
+            <i class="bi bi-bag"></i>
+          </button>
         </div>
       </div>
     </nav>
