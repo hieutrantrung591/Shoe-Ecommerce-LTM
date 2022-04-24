@@ -1,5 +1,6 @@
 li.nav-item {
-    padding: 0.5em 1.0em;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
 }
 
 .bi-bag:hover, .bi-heart:hover {
@@ -14,4 +15,18 @@ li.nav-item {
 
 .nav-item > a:hover {
     color: #B90014;
+}
+
+.input-group-text {
+    background-color: #fff;
+    border-radius: 1rem 0 0 1rem;
+    border-right: 1px solid transparent;
+}
+
+input.form-control {
+    border-radius: 0 1rem 1rem 0;
+}
+
+input.form-control:focus {
+    border-color: #B90014;
 }

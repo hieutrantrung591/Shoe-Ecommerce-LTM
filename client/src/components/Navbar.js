@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import logo from '../assets/image/logo/logo-small.png';
+import logo from '../assets/image/logo/logo.png';
 import './Navbar.css';
 
 function Navbar() {
@@ -16,7 +16,7 @@ function Navbar() {
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav me-3">
+          <ul className="navbar-nav d-flex align-items-center justify-content-center flex-grow-1">
             <li className="nav-item">
               <Link to="/">Men</Link>  
             </li>
@@ -31,24 +31,26 @@ function Navbar() {
             </li>
           </ul>
 
-          <form className="d-flex align-items-center w-100 form-search">
-            <div className="input-group">
-              <div className="input-group-prepend">
-                <span className="input-group-text">
-                  <i className="bi bi-search"></i>
-                </span>
+          <div class="d-flex align-items-center justify-content-center">
+            <form className="d-flex align-items-center form-search">
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <span className="input-group-text">
+                    <i className="bi bi-search"></i>
+                  </span>
+                </div>
+                <input type="search" className="form-control shadow-none" placeholder="Search" aria-label="Search" />
               </div>
-              <input type="search" className="form-control" placeholder="Search" aria-label="Search" />
-            </div>
-            <a href="#!" className="text-white"><i className="fas fa-search ps-3"></i></a>
-          </form>
+              <a href="#!" className="text-white"><i className="fas fa-search ps-3"></i></a>
+            </form>
 
-          <button type="button" className="btn me-2">
-            <i class="bi bi-heart"></i>
-          </button>
-          <button type="button" className="btn">
-            <i class="bi bi-bag"></i>
-          </button>
+            <button type="button" className="btn me-2">
+              <i class="bi bi-heart"></i>
+            </button>
+            <button type="button" className="btn">
+              <i class="bi bi-bag"></i>
+            </button>
+          </div>          
         </div>
       </div>
     </nav>
