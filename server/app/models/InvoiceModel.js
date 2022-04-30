@@ -11,8 +11,4 @@ const Invoice = db.define('invoice', {
     freezeTableName:true
 });
 
-(async () => {
-    await db.sync();
-})();
-
 export default Invoice;

@@ -32,9 +32,5 @@ const Employee = db.define('employee',{
 Employee.hasMany(ImportExport);
 Employee.hasMany(Invoice);
 Employee.hasMany(User);
-
-(async () => {
-    await db.sync();
-})();
  
 export default Employee;

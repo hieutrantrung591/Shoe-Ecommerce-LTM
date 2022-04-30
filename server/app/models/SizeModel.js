@@ -11,8 +11,4 @@ const Size = db.define('size', {
     freezeTableName: true
 });
 
-(async() => {
-    await db.sync();
-})();
-
 export default Size;

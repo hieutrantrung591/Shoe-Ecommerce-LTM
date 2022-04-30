@@ -4,9 +4,20 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import db from "./app/config/Database.js";
+import Warehouse from "./app/models/WarehouseModel.js";
+import Brand from "./app/models/BrandModel.js";
+import ImportExport from "./app/models/ImportExportModel.js";
+import Product from "./app/models/ProductModel.js";
 
 dotenv.config();
 const app = express();
+
+Warehouse.hasMany(ImportExport);
+Brand.hasMany(Product);
+(async () => {
+    await db.sync({ force: true });
+})();
 
 // import _AuthMiddleWare from "./app/common/_AuthMiddleWare";
 

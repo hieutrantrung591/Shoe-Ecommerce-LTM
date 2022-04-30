@@ -13,9 +13,5 @@ const ImportExportProduct = db.define('import_export_product', {
 },{
     freezeTableName:true
 });
- 
-(async () => {
-    await db.sync();
-})();
 
 export default ImportExportProduct;

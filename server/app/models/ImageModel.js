@@ -14,8 +14,4 @@ const Image = db.define('image', {
     freezeTableName: true
 });
 
-(async () => {
-    await db.sync();
-})();
-
 export default Image;

@@ -13,9 +13,5 @@ const InvoiceProduct = db.define('invoice_product', {
 },{
     freezeTableName:true
 });
- 
-(async () => {
-    await db.sync();
-})();
 
 export default InvoiceProduct;

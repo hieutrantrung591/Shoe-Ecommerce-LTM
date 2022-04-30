@@ -29,8 +29,4 @@ Product.belongsToMany(Size, { through: SizeProduct });
 Product.belongsToMany(ImportExport, { through: ImportExportProduct });
 Product.hasMany(Image);
 
-(async() => {
-    await db.sync();
-})();
-
 export default Product;

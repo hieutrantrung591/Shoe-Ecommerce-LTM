@@ -22,9 +22,5 @@ const User = db.define('user',{
 });
 
 User.hasMany(Invoice);
-
-(async () => {
-    await db.sync();
-})();
  
 export default User;

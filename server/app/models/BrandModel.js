@@ -12,10 +12,6 @@ const Brand = db.define('brand',{
     freezeTableName:true
 });
  
-Brand.hasMany(Product);
-
-(async () => {
-    await db.sync();
-})();
+Brand.hasMany(Product, { onDelete: 'SET NULL', onUpdate: 'CASCADE' });
  
 export default Brand;

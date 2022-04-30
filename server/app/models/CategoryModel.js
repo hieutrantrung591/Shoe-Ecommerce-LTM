@@ -11,10 +11,6 @@ const Category = db.define('category',{
 },{
     freezeTableName:true
 });
- 
-(async () => {
-    await db.sync();
-})();
 
 Category.hasMany(Product);
  

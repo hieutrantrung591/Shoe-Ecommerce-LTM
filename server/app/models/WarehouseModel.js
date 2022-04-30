@@ -17,8 +17,4 @@ const Warehouse = db.define('warehouse', {
  
 Warehouse.hasMany(ImportExport);
 
-(async () => {
-    await db.sync();
-})();
-
 export default Warehouse;

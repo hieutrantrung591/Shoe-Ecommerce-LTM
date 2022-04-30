@@ -28,8 +28,4 @@ const Supplier = db.define('supplier', {
 
 Supplier.hasMany(Product);
 
-(async () => {
-    await db.sync();
-})();
-
 export default Supplier;
