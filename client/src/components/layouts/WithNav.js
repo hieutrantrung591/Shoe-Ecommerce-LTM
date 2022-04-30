@@ -3,7 +3,7 @@ import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer'
 import { Outlet } from 'react-router';
 
-export default () => {
+const WithNav = () => {
   return (
     <>
       <Navbar />
@@ -12,3 +12,5 @@ export default () => {
     </>
   );
 };
+
+export default WithNav;

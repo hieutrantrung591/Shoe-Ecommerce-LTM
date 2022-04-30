@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/image/logo/logo.png';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -22,16 +22,16 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav d-flex align-items-center justify-content-center flex-grow-1">
             <li className="nav-item">
-              <Link to="/">Men</Link>  
+              <NavLink to="/" activeClassName="active">Men</NavLink>  
             </li>
             <li className="nav-item">
-              <Link to="/about">Women</Link>
+              <NavLink to="/about" activeClassName="active">Women</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/contact">Special</Link>
+              <NavLink to="/contact" activeClassName="active">Special</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/projects">Sale</Link>
+              <NavLink to="/projects" activeClassName="active">Sale</NavLink>
             </li>
           </ul>
 

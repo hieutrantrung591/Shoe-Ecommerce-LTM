@@ -1,4 +1,5 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 
-export default () => <Outlet />
+const WithoutNav = () => <Outlet />
+export default WithoutNav;

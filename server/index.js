@@ -1,17 +1,23 @@
-var express = require("express");
-var cors = require("cors");
-var bodyParser = require("body-parser");
-const _AuthMiddleWare = require("./app/common/_AuthMiddleWare");
-require("dotenv").config();
+import router from "./app/routes/web.js";
+import dotenv from "dotenv";
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 
-var app = express();
+dotenv.config();
+const app = express();
+
+// import _AuthMiddleWare from "./app/common/_AuthMiddleWare";
+
+app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
+app.use(express.json());
+app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({
     extended: true 
 }));
 app.use(bodyParser.json());
-
-app.use(cors());
 
 /**
  * Allow Origin
@@ -40,12 +46,14 @@ app.use(function (req, res, next) {
 /**
  * Routers
  */
-require('./app/routes/home.router')(app);
-require('./app/routes/account.router')(app);
+app.use(router);
 
-app.use(_AuthMiddleWare.isAuth);
-require('./app/routes/book.router')(app);   // cac router nam phia sau cai middleware deu phai check token hop le
-require('./app/routes/user.router')(app);
+// require('./app/routes/home.router')(app);
+// require('./app/routes/account.router')(app);
+
+// app.use(_AuthMiddleWare.isAuth);
+// require('./app/routes/book.router')(app);   // cac router nam phia sau cai middleware deu phai check token hop le
+// require('./app/routes/user.router')(app);
 
 const PORT = process.env.PORT || 8080;
 
