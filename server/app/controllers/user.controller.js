@@ -1,19 +1,20 @@
 var User = require('../models/user.model');
-var jwt = require('../common/_JWT')
+var jwt = require('../common/_JWT');
+var bcrypt = require('bcrypt');
 
-exports.get_list = function (req, res) {
+let get_list = function (req, res) {
     User.get_all(function(data) {
         res.send({ result: data });
     });
 }
 
-exports.detail = function (req, res) {
+let detail = function (req, res) {
     User.getById(req.params.id, function(response) {
         res.send({ result: response });
     });
 }
 
-exports.add_user = function (req, res) {
+let add_user = function (req, res) {
     // Data se nhan tu form
     var data = req.body;
 
@@ -22,7 +23,7 @@ exports.add_user = function (req, res) {
     });
 }
 
-exports.delete_user = function (req, res) {
+let delete_user = function (req, res) {
     var id = req.params.id;
 
     User.delete(id, function (response) {
@@ -30,7 +31,7 @@ exports.delete_user = function (req, res) {
     });
 }
 
-exports.update_user = function (req, res) {
+let update_user = function (req, res) {
     // Update se nhan du lieu tu request, truoc do no hien thi du lieu cu tu dbcs
     var data = req.body;
 
@@ -39,8 +40,7 @@ exports.update_user = function (req, res) {
     });
 }
 
-exports.login = function (req, res) {
-    // Update se nhan du lieu tu request, truoc do no hien thi du lieu cu tu dbcs
+let login = function (req, res) {
     var data = req.body;
 
     User.check_login(data, async function (response) {
@@ -51,4 +51,13 @@ exports.login = function (req, res) {
             res.send({ result: '', status: false });
         }
     });
+}
+
+module.exports = {
+    login: login,
+    add_user: add_user,
+    detail: detail,
+    get_list: get_list,
+    delete_user: delete_user,
+    update_user: update_user
 }

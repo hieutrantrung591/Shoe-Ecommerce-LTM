@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import logo from '../assets/image/logo/logo.png';
+import logo from '../../assets/image/logo/logo.png';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
@@ -15,11 +15,11 @@ function Navbar() {
           <img src={logo} alt="Poseidon Logo" draggable="false" height="50"/>  
         </Link>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav d-flex align-items-center justify-content-center flex-grow-1">
             <li className="nav-item">
               <Link to="/">Men</Link>  
@@ -35,7 +35,7 @@ function Navbar() {
             </li>
           </ul>
 
-          <div class="d-flex align-items-center justify-content-center flex-grow-1 input-search">
+          <div className="d-flex align-items-center justify-content-center flex-grow-1 input-search">
             <form className="d-flex align-items-center form-search flex-grow-1">
               <span className="input-icon">
                 <FontAwesomeIcon icon={faMagnifyingGlass} />

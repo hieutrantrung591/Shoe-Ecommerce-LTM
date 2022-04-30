@@ -4,5 +4,5 @@ module.exports = function(router) {
 
     router.post('/account/login', userController.login);
 
-    router.post('/account/add', userController.add_user);
+    router.post('/account/register', userController.add_user);
 }
