@@ -1,71 +1,36 @@
-var dotenv = require("dotenv");
 var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
-var cookieParser = require("cookie-parser");
-var db = require('./src/config/Database');
-const userRoute = require('./src/routes/web')
+const _AuthMiddleWare = require("./app/common/_AuthMiddleWare");
 
-dotenv.config();
-const app = express();
-
-// import _AuthMiddleWare from "./app/common/_AuthMiddleWare";
-
-app.use(cors);
-app.use(express.json());
-app.use(cookieParser());
+var app = express();
 
 app.use(bodyParser.urlencoded({
     extended: true 
 }));
 app.use(bodyParser.json());
 
+app.use(cors());
+
 /**
  * Allow Origin
  */
-
-// Add headers before the routes are defined
-app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', process.env.REACT_URL);
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    // Pass to next layer of middleware
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     next();
 });
 
 /**
  * Routers
  */
-app.use('/users', userRoute);
+require('./app/routes/home.router')(app);
+require('./app/routes/account.router')(app);
 
-app.get('/', function(req, res){
-    try {
-        res.send("<h2>This is my first app</h2>");
-    } catch (err) {
-        console.log(error);
-    }
-    
-    
-})
- 
-
-// require('./app/routes/home.router')(app);
-// require('./app/routes/account.router')(app);
-
-// app.use(_AuthMiddleWare.isAuth);
-// require('./app/routes/book.router')(app);   // cac router nam phia sau cai middleware deu phai check token hop le
-// require('./app/routes/user.router')(app);
+app.use(_AuthMiddleWare.isAuth);
+require('./app/routes/book.router')(app);   // cac router nam phia sau cai middleware deu phai check token hop le
+require('./app/routes/user.router')(app);
 
 const PORT = process.env.PORT || 8080;
 
