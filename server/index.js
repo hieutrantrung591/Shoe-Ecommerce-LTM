@@ -1,27 +1,17 @@
-import router from "./app/routes/web.js";
-import dotenv from "dotenv";
-import express from "express";
-import cors from "cors";
-import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
-import db from "./app/config/Database.js";
-import Warehouse from "./app/models/WarehouseModel.js";
-import Brand from "./app/models/BrandModel.js";
-import ImportExport from "./app/models/ImportExportModel.js";
-import Product from "./app/models/ProductModel.js";
+var dotenv = require("dotenv");
+var express = require("express");
+var cors = require("cors");
+var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
+var db = require('./src/config/Database');
+const userRoute = require('./src/routes/web')
 
 dotenv.config();
 const app = express();
 
-Warehouse.hasMany(ImportExport);
-Brand.hasMany(Product);
-(async () => {
-    await db.sync({ force: true });
-})();
-
 // import _AuthMiddleWare from "./app/common/_AuthMiddleWare";
 
-app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
+app.use(cors);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -57,7 +47,18 @@ app.use(function (req, res, next) {
 /**
  * Routers
  */
-app.use(router);
+app.use('/users', userRoute);
+
+app.get('/', function(req, res){
+    try {
+        res.send("<h2>This is my first app</h2>");
+    } catch (err) {
+        console.log(error);
+    }
+    
+    
+})
+ 
 
 // require('./app/routes/home.router')(app);
 // require('./app/routes/account.router')(app);
