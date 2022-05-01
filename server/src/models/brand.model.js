@@ -1,13 +1,11 @@
 const db = require('../config/connect.js');
 const Brand = function(brand) {
-    this.id = brand.id;
-    this.name = brand.name;
-    this.createdAt = brand.createdAt;
-    this.updatedAt = brand.updatedAt;
+    this.MaTH = brand.MaTH;
+    this.TenTH = brand.TenTH;
 }
 
 Brand.get_all = function(result) {
-    db.query("SELECT * FROM brand", function(err, brand) {
+    db.query("SELECT * FROM thuonghieu", function(err, brand) {
         if (err || brand.length == 0) {
             result(null);
         } 
@@ -18,8 +16,8 @@ Brand.get_all = function(result) {
 }
 
 Brand.getById = function(id, result) {
-    db.query("SELECT * FROM brand WHERE id = ?", id, function(err, brand) {
-        if (err) {
+    db.query("SELECT * FROM thuonghieu WHERE MaTH = ?", id, function(err, brand) {
+        if (err || brand.length == 0) {
             result(null);
         } else {
             result(brand[0]);
@@ -28,27 +26,27 @@ Brand.getById = function(id, result) {
 }
 
 Brand.create = function(data, result) {
-    db.query("INSERT INTO brand SET ?", data, function(err, brand) {
+    db.query("INSERT INTO thuonghieu SET ?", data, function(err, brand) {
         if (err) {
             result(null);
         } else {
-            result({ id: brand.insertId, ...data });
+            result({ ...data });
         }
     })
 }
 
 Brand.delete = function(id, result) {
-    db.query("DELETE FROM brand WHERE id = ?", id, function(err, brand) {
+    db.query("DELETE FROM thuonghieu WHERE MaTH = ?", id, function(err, brand) {
         if (err) {
             result(null);
         } else {
-            result("Xóa dữ liệu book có id = " + id + " thành công");
+            result("Xóa dữ liệu ThuongHieu có id = " + id + " thành công");
         }
     })
 }
 
 Brand.update = function(data, result) {
-    db.query("UPDATE brand SET name=?, updatedAt=? WHERE id=?", [data.name, new Date(), data.id], function(err, brand) {
+    db.query("UPDATE thuonghieu SET TenTH=? WHERE MaTH=?", [data.TenTH, data.MaTH], function(err, brand) {
         if (err) {
             result(null);
         } else {

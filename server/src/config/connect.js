@@ -4,7 +4,7 @@ var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'poseidon_shoe'
+    database: 'quanlybanhang'
 });
 
 con.connect(function(err) {

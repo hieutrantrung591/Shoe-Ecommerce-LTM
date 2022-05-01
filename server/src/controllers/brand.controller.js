@@ -12,7 +12,8 @@ exports.detail = function (req, res) {
     });
 }
 
-exports.add_book = function (req, res) {
+// body-parser
+exports.add_brand = function (req, res) {
     // Data se nhan tu form
     var data = req.body;
 
@@ -21,7 +22,7 @@ exports.add_book = function (req, res) {
     });
 }
 
-exports.delete_book = function (req, res) {
+exports.delete_brand = function (req, res) {
     var id = req.params.id;
 
     Brand.delete(id, function (response) {
@@ -29,7 +30,7 @@ exports.delete_book = function (req, res) {
     });
 }
 
-exports.update_book = function (req, res) {
+exports.update_brand = function (req, res) {
     // Update se nhan du lieu tu request, truoc do no hien thi du lieu cu tu dbcs
     var data = req.body;
 

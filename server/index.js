@@ -1,12 +1,12 @@
 var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
-const _AuthMiddleWare = require("./app/common/_AuthMiddleWare");
+// const _AuthMiddleWare = require("./app/common/_AuthMiddleWare");
 
 var app = express();
 
 app.use(bodyParser.urlencoded({
-    extended: true 
+    extended: false 
 }));
 app.use(bodyParser.json());
 
@@ -25,12 +25,15 @@ app.use(function(req, res, next) {
 /**
  * Routers
  */
-require('./app/routes/home.router')(app);
-require('./app/routes/account.router')(app);
+var brandRouter = require("./src/routes/brand.router.js");
+var categoryRouter = require("./src/routes/category.router.js");
+var imageRouter = require("./src/routes/image.router.js");
+app.use('/', brandRouter);
+app.use('/', categoryRouter);
+app.use('/', imageRouter);
 
-app.use(_AuthMiddleWare.isAuth);
-require('./app/routes/book.router')(app);   // cac router nam phia sau cai middleware deu phai check token hop le
-require('./app/routes/user.router')(app);
+// app.use(_AuthMiddleWare.isAuth);
+// cac router nam phia sau cai middleware deu phai check token hop le
 
 const PORT = process.env.PORT || 8080;
 
