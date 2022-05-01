@@ -1,0 +1,44 @@
+.card__body{
+    display:flex;
+}
+.row__left{
+    display: flex;
+    width: 50%;
+    color: red
+}
+.row__left__1 >img,
+.row__left__2 >img{
+    height: 12rem;
+    width: 15rem;
+}
+
+
+.row__right__3{
+    display: flex;
+   
+}
+.row__right__5{
+    display: flex;
+
+}
+
+.selec__size2,
+.selec__size3{
+    padding-left: 2rem;
+}
+
+.selec__size1 >div,
+.selec__size2 >div,
+.selec__size3 >div{
+    border: 1px solid #333;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.btn-add{
+    background-color: #333;
+    color:#fff;
+    padding:1rem 9rem;
+    border-radius: 1rem
+
+}
