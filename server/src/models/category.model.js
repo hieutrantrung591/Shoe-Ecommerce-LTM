@@ -40,7 +40,7 @@ Category.delete = function(id, result) {
         if (err) {
             result(null);
         } else {
-            result("Xóa dữ liệu DanhMuc có id = " + id + " thành công");
+            result("Delete DanhMuc with id = " + id + " successful");
         }
     })
 }

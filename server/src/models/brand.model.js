@@ -8,8 +8,7 @@ Brand.get_all = function(result) {
     db.query("SELECT * FROM thuonghieu", function(err, brand) {
         if (err || brand.length == 0) {
             result(null);
-        } 
-        else {
+        } else {
             result(brand);
         }
     });
@@ -40,7 +39,7 @@ Brand.delete = function(id, result) {
         if (err) {
             result(null);
         } else {
-            result("Xóa dữ liệu ThuongHieu có id = " + id + " thành công");
+            result("Delete ThuongHieu with id = " + id + " successful");
         }
     })
 }

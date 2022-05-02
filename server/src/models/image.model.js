@@ -41,7 +41,7 @@ Image.delete = function(id, result) {
         if(err) {
             result(null);
         } else {
-            result("Xóa dữ liệu HinhAnh có id = " + id + " thành công");
+            result("Delete HinhAnh with id = " + id + " successful");
         }
     });
 }

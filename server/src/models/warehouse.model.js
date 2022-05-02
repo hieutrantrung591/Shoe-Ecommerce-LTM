@@ -26,7 +26,7 @@ Warehouse.getById = function(result) {
     });
 }
 
-Warehouse.crete = function(data, result) {
+Warehouse.create = function(data, result) {
     db.query("INSERT INTO khohang SET ?", data, function(err, warehouse) {
         if (err) {
             result(null);
@@ -41,13 +41,13 @@ Warehouse.delete = function(id, result) {
         if (err) {
             result(null);
         } else {
-            result("Xóa dữ liệu KhoHang có id = " + id + " thành công");
+            result("Delete KhoHang with id = " + id + " successful");
         }
     });
 }
 
 Warehouse.update = function(data, result) {
-    db.query("UPDATE khohang SET TenKho = ?, DiaChi = ?, MaNV = ? WHERE Id = ?", [data.TenKho, data.DiaChi, data.MaNV, data.MaKho], function(err,warehouse){
+    db.query("UPDATE khohang SET TenKho = ?, DiaChi = ?, MaNV = ? WHERE MaKho = ?", [data.TenKho, data.DiaChi, data.MaNV, data.MaKho], function(err,warehouse){
         if (err) {
             result(null);
         } else {

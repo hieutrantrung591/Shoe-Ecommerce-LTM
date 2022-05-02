@@ -1,6 +1,6 @@
 var Brand = require('../models/brand.model.js');
 
-exports.get_list = function (req, res) {
+exports.getList = function (req, res) {
     Brand.get_all(function(data) {
         res.send({ result: data });
     });
@@ -13,7 +13,7 @@ exports.detail = function (req, res) {
 }
 
 // body-parser
-exports.add_brand = function (req, res) {
+exports.addBrand = function (req, res) {
     // Data se nhan tu form
     var data = req.body;
 
@@ -22,7 +22,7 @@ exports.add_brand = function (req, res) {
     });
 }
 
-exports.delete_brand = function (req, res) {
+exports.deleteBrand = function (req, res) {
     var id = req.params.id;
 
     Brand.delete(id, function (response) {
@@ -30,7 +30,7 @@ exports.delete_brand = function (req, res) {
     });
 }
 
-exports.update_brand = function (req, res) {
+exports.updateBrand = function (req, res) {
     // Update se nhan du lieu tu request, truoc do no hien thi du lieu cu tu dbcs
     var data = req.body;
 
