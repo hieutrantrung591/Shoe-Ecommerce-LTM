@@ -34,7 +34,7 @@ Product.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result(product);
+            result({ ...data });
         }
     })
 }
@@ -58,3 +58,5 @@ Product.update = function(data, result) {
         }
     })
 }
+
+module.exports = Product;

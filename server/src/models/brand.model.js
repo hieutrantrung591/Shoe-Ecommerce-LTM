@@ -4,7 +4,7 @@ const Brand = function(brand) {
     this.TenTH = brand.TenTH;
 }
 
-Brand.get_all = function(result) {
+Brand.getAll = function(result) {
     db.query("SELECT * FROM thuonghieu", function(err, brand) {
         if (err || brand.length == 0) {
             result(null);

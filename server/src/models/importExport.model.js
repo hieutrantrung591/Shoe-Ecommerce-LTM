@@ -32,7 +32,7 @@ ImportExport.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result(importExport);
+            result({ ...data });
         }
     })
 }
@@ -56,3 +56,5 @@ ImportExport.update = function(data, result) {
         }
     })
 }
+
+module.exports = ImportExport

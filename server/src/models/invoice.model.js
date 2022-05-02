@@ -56,3 +56,5 @@ Invoice.update = function(data, result) {
         }
     })
 }
+
+module.exports = Invoice;

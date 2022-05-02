@@ -31,17 +31,27 @@ var imageRouter = require("./src/routes/image.router");
 var warehouseRouter = require("./src/routes/warehouse.router");
 var supplierRouter = require("./src/routes/supplier.router");
 var sizeRouter = require("./src/routes/size.router");
+var sizeProductRouter = require("./src/routes/sizeProduct.router");
 var productRouter = require("./src/routes/product.router");
 var invoiceRouter = require("./src/routes/invoice.router");
 var importExportRouter = require("./src/routes/importExport.router");
+var employeeRouter = require("./src/routes/employee.router");
+var invoiceProductRouter = require("./src/routes/invoiceProduct.router");
+var importExportProductRouter = require("./src/routes/importExportProduct.router")
+var customerRouter = require("./src/routes/customer.router");
 
 app.use('/', brandRouter);
 app.use('/', categoryRouter);
+app.use('/', customerRouter);
+app.use('/', employeeRouter);
 app.use('/', imageRouter);
 app.use('/', importExportRouter);
+app.use('/', importExportProductRouter);
 app.use('/', invoiceRouter);
+app.use('/', invoiceProductRouter);
 app.use('/', productRouter);
 app.use('/', sizeRouter);
+app.use('/', sizeProductRouter);
 app.use('/', supplierRouter);
 app.use('/', warehouseRouter);
 

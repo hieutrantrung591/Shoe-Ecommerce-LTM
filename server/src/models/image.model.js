@@ -6,7 +6,7 @@ const Image = function(image) {
     this.MaSp = image.MaSP;
 }
 
-Image.get_all = function(result) {
+Image.getAll = function(result) {
     db.query("SELECT * FROM hinhanh", function(err, image) {
         if (err || image.length == 0) {
             result(null);

@@ -1,7 +1,7 @@
 var Image = require("../models/image.model.js");
 
 exports.get_list = function(req, res) {
-    Image.get_all(function(data) {
+    Image.getAll(function(data) {
         res.send({ result: data });
     })
 }

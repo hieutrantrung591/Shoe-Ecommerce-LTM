@@ -1,7 +1,7 @@
 var Brand = require('../models/brand.model.js');
 
 exports.getList = function (req, res) {
-    Brand.get_all(function(data) {
+    Brand.getAll(function(data) {
         res.send({ result: data });
     });
 }
