@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { Link, useHistory } from 'react-router-dom'
-import './Register.css'
 import logo from '../../assets/image/logo/logo.png';
 
 const Register = () => {
@@ -50,17 +49,17 @@ const Register = () => {
                                             <h3 class="title">BECOME A POSEIDON MEMBER</h3>
                                             <p className="has-text-centered">{msg}</p>
                                             <div className="mb-3">
+                                                <input type="text" className="form-control form-control-user" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} />
+                                            </div>
+                                            <div className="mb-3">
                                                 <input type="text" className="form-control form-control-user" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                             </div>
                                             <div className="mb-3">
                                                 <input type="password" className="form-control form-control-user" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                             </div>
-                                            <div className="mb-3">
-                                                <input type="password" className="form-control form-control-user" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                                            </div>
                                             <div className="mb-4">
-                                                <input type="text" className="form-control form-control-user" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-                                            </div>                                 
+                                                <input type="password" className="form-control form-control-user" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                                            </div>                                       
                                             <div className="d-grid mb-4">
                                                 <button type="submit" className="btn btn-dark btn-lg btn-block">Sign up</button>
                                             </div>
