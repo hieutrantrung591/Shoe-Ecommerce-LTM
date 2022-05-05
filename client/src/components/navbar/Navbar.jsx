@@ -7,7 +7,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-function Navbar() {
+const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -22,7 +22,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav d-flex align-items-center justify-content-center flex-grow-1">
             <li className="nav-item">
-              <NavLink to="/" activeClassName="active">Men</NavLink>  
+              <NavLink to="/" exact={true} activeClassName="active">Men</NavLink>  
             </li>
             <li className="nav-item">
               <NavLink to="/about" activeClassName="active">Women</NavLink>
@@ -53,7 +53,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
