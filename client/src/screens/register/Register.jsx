@@ -42,10 +42,10 @@ const Register = () => {
 								<div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
 								<div className="col-lg-6">
 									<div className="p-5">
-										<form onSubmit={Register}>
+										<form onSubmit={Register} className="text-center">
 											<img src={logo} alt="Poseidon Logo" draggable="false" height="180" />
 											<h3 className="title">BECOME A POSEIDON MEMBER</h3>
-											<p className="has-text-centered">{msg}</p>
+											<p className="text-start">{msg}</p>
 											<div className="mb-3">
 												<input type="text" className="form-control form-control-user" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} />
 											</div>

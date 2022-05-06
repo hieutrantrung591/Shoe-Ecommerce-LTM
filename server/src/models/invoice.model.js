@@ -1,7 +1,6 @@
 const db = require('../config/connect.js');
 const Invoice = function(invoice) {
     this.MaHD = invoice.MaHD;
-    this.ThanhTien = invoice.ThanhTien;
     this.NgayXuat = invoice.NgayXuat;
     this.MaKH = invoice.MaKH;
     this.MaNV = invoice.MaNV;
@@ -48,7 +47,7 @@ Invoice.delete = function(id, result) {
 }
 
 Invoice.update = function(data, result) {
-    db.query("UPDATE hoadon SET ThanhTien = ?, NgayXuat = ?, MaKH = ?, MaNV = ? WHERE MaHD = ?", [data.ThanhTien, data.NgayXuat, data.MaKH, data.MaNV, data.MaHD], function(err, invoice) {
+    db.query("UPDATE hoadon SET NgayXuat = ?, MaKH = ?, MaNV = ? WHERE MaHD = ?", [data.NgayXuat, data.MaKH, data.MaNV, data.MaHD], function(err, invoice) {
         if (err) {
             result(null);
         } else {

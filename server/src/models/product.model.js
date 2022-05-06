@@ -1,7 +1,7 @@
 const db = require("../config/connect.js");
 const Product = function(product) {
     this.MaSP = product.MaSP;
-    this.TenSanPham = product.TenSanPham;
+    this.Ten = product.Ten;
     this.DonGia = product.DonGia;
     this.MoTa = product.MoTa;
     this.MaDM = product.MaDM;
@@ -50,7 +50,7 @@ Product.delete = function(id, result) {
 }
 
 Product.update = function(data, result) {
-    db.query("UPDATE sanpham SET TenSanPham = ?, DonGia = ?, MoTa = ?, MaDM = ?, MaNCC = ?, MaTH = ? WHERE MaSP = ?", [data.TenSanPham, data.DonGia, data.MoTa, data.MaDM, data.MaNCC, data.MaTH, data.MaSP], function(err, product) {
+    db.query("UPDATE sanpham SET Ten = ?, DonGia = ?, MoTa = ?, MaDM = ?, MaNCC = ?, MaTH = ? WHERE MaSP = ?", [data.Ten, data.DonGia, data.MoTa, data.MaDM, data.MaNCC, data.MaTH, data.MaSP], function(err, product) {
         if (err) {
             result(null);
         } else {

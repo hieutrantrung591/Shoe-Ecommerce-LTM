@@ -1,7 +1,7 @@
 const db = require('../config/connect.js');
 const Brand = function(brand) {
     this.MaTH = brand.MaTH;
-    this.TenTH = brand.TenTH;
+    this.Ten = brand.Ten;
 }
 
 Brand.getAll = function(result) {
@@ -45,7 +45,7 @@ Brand.delete = function(id, result) {
 }
 
 Brand.update = function(data, result) {
-    db.query("UPDATE thuonghieu SET TenTH=? WHERE MaTH=?", [data.TenTH, data.MaTH], function(err, brand) {
+    db.query("UPDATE thuonghieu SET Ten=? WHERE MaTH=?", [data.TenTH, data.MaTH], function(err, brand) {
         if (err) {
             result(null);
         } else {

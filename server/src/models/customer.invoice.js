@@ -3,6 +3,7 @@ const Customer = function(customer) {
     this.MaKH = customer.MaKH;
     this.HoTen = customer.HoTen;
     this.DiaChi = customer.DiaChi;
+    this.SDT = customer.SDT;
     this.MaNV = customer.MaNV;
 }
 
@@ -47,7 +48,7 @@ Customer.delete = function(id, result) {
 }
 
 Customer.update = function(data, result) {
-    db.update("UPDATE khachhang SET HoTen = ?, DiaChi = ?, MaNV = ? WHERE MaKH = ?", [data.HoTen, data.DiaChi, data.MaNV, data.MaKH], function(err, customer) {
+    db.update("UPDATE khachhang SET HoTen = ?, DiaChi = ?, SDT = ?, MaNV = ? WHERE MaKH = ?", [data.HoTen, data.DiaChi, data.SDT, data.MaNV, data.MaKH], function(err, customer) {
         if(err) {
             result(null);
         } else {

@@ -37,13 +37,13 @@ const Login = () => {
 					<div className="card o-hidden border-0 shadow-lg my-5">
 						<div className="card-body p-0">
 							<div className="row">
-								<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-								<div class="col-lg-6">
+								<div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
+								<div className="col-lg-6">
 									<div className="p-5">
-										<form onSubmit={handleLogin}>
+										<form onSubmit={handleLogin} className="text-center">
 											<img src={logo} alt="Poseidon Logo" draggable="false" height="180" />
-											<h3 class="title">WELCOME</h3>
-											<p className="has-text-centered">{msg}</p>
+											<h3 className="title text-center">WELCOME</h3>
+											<p className="text-center">{msg}</p>
 											<div className="mb-3">
 												<input 
 													type="text" 
@@ -62,7 +62,7 @@ const Login = () => {
 												<div className="flex-fill text-start">
 													<div className="form-check">
 														<input type="checkbox" className="form-check-input" value="signed" id="checkSignIn" />
-														<label className="form-check-label" for="checkSignIn">
+														<label className="form-check-label" htmlFor="checkSignIn">
 															Remember me
 														</label>
 													</div>

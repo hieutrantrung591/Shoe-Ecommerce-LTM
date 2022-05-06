@@ -7,38 +7,39 @@ var dotenv = require("dotenv");
 var app = express();
 
 app.use(bodyParser.urlencoded({
-    extended: false 
+  extended: false
 }));
 app.use(bodyParser.json());
 
 /**
  * Allow Origin
  */
-const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
+const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:8080'];
 const corsOptions = {
-    credentials: true, // This is important.
-    origin: (origin, callback) => {
-        if(whitelist.includes(origin))
-            return callback(null, true)
-        callback(new Error('Not allowed by CORS'));
-    }
+  credentials: true, // This is important.
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin))
+      return callback(null, true)
+    callback(new Error('Not allowed by CORS'));
+  },
+  methods: 'GET, PUT, POST, DELETE'
 }
- 
+
 app.use(cors(corsOptions));
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header("Access-Control-Allow-Origin", 'http://localhost:3000');
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
-    );
-    if ("OPTIONS" == req.method) {
-      res.send(200);
-    } else {
-      next();
-    }
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", whitelist);
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+  );
+  if ("OPTIONS" == req.method) {
+    res.send(200);
+  } else {
+    next();
+  }
 });
 
 /**
@@ -81,6 +82,6 @@ app.use('/', warehouseRouter);
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, function() {
-    console.log(`CORS-enabled web server listening on port ${PORT}`);
+app.listen(PORT, function () {
+  console.log(`CORS-enabled web server listening on port ${PORT}`);
 });

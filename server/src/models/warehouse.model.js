@@ -1,7 +1,7 @@
 const db = require('../config/connect.js');
 const Warehouse = function(warehouse) {
     this.MaKho = warehouse.MaKho;
-    this.TenKho = warehouse.TenKho;
+    this.Ten = warehouse.Ten;
     this.DiaChi = warehouse.DiaChi;
     this.MaNV = warehouse.MaNV;
 }
@@ -47,7 +47,7 @@ Warehouse.delete = function(id, result) {
 }
 
 Warehouse.update = function(data, result) {
-    db.query("UPDATE khohang SET TenKho = ?, DiaChi = ?, MaNV = ? WHERE MaKho = ?", [data.TenKho, data.DiaChi, data.MaNV, data.MaKho], function(err,warehouse){
+    db.query("UPDATE khohang SET Ten = ?, DiaChi = ?, MaNV = ? WHERE MaKho = ?", [data.Ten, data.DiaChi, data.MaNV, data.MaKho], function(err,warehouse){
         if (err) {
             result(null);
         } else {

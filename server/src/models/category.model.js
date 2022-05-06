@@ -1,7 +1,7 @@
 const db = require("../config/connect.js");
 const Category = function(category) {
     this.MaDM = category.MaDM; 
-    this.TenDM = category.TenDM;
+    this.Ten = category.Ten;
     this.MaNV = category.MaNV;
 }
 
@@ -46,7 +46,7 @@ Category.delete = function(id, result) {
 }
 
 Category.update = function(data, result) {
-    db.query("UPDATE danhmuc SET TenDM = ?, MaNV = ? WHERE MaDM = ?", [data.TenDM, data.MaNV, data.MaDM], function(err, category) {
+    db.query("UPDATE danhmuc SET Ten = ?, MaNV = ? WHERE MaDM = ?", [data.Ten, data.MaNV, data.MaDM], function(err, category) {
         if (err) {
             result(null);
         } else {

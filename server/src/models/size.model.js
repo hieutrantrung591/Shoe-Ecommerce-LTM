@@ -1,7 +1,7 @@
 const db = require('../config/connect.js');
 const Size = function(size) {
     this.MaKT = size.MaKT;
-    this.TenKT = size.TenKT;
+    this.Ten = size.Ten;
 }
 
 Size.getAll = function(result) {
@@ -45,7 +45,7 @@ Size.delete = function(id, result) {
 }
 
 Size.update = function(data, result) {
-    db.query("UPDATE kichthuoc SET TenKT = ? WHERE MaKT = ?", [data.TenKT, data.MaKT], function(err, size) {
+    db.query("UPDATE kichthuoc SET Ten = ? WHERE MaKT = ?", [data.Ten, data.MaKT], function(err, size) {
         if (err) {
             result(null);
         } else {

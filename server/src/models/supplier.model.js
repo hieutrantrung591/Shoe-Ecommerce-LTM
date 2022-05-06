@@ -1,7 +1,7 @@
 const db = require('../config/connect.js');
 const Supplier = function(supplier) {
     this.MaNCC = supplier.MaNCC;
-    this.TenNCC = supplier.TenNCC;
+    this.Ten = supplier.Ten;
     this.DiaChi = supplier.DiaChi;
     this.SDT = supplier.SDT;
     this.Email = supplier.Email;
@@ -49,7 +49,7 @@ Supplier.delete = function(id, result) {
 }
 
 Supplier.update = function(data, result) {
-    db.query("UPDATE nhacungcap SET TenNCC = ?, DiaChi = ?, SDT = ?, Email = ?, TenNguoiDaiDien = ? WHERE MaNCC = ?", [data.TenNCC, data.DiaChi, data.SDT, data.Email, data.TenNguoiDaiDien, data.MaNCC], function(err, supplier) {
+    db.query("UPDATE nhacungcap SET Ten = ?, DiaChi = ?, SDT = ?, Email = ?, TenNguoiDaiDien = ? WHERE MaNCC = ?", [data.Ten, data.DiaChi, data.SDT, data.Email, data.TenNguoiDaiDien, data.MaNCC], function(err, supplier) {
         if (err) {
             result(null);
         } else {

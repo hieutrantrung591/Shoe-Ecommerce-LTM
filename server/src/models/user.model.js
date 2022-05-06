@@ -55,19 +55,8 @@ User.update = function(data, result) {
     })
 }
 
-User.login = function(data, result) {
-    db.query("SELECT * FROM nguoidung WHERE email = ? AND password = ?", [data.email, data.password], function(err, user) {
-        if (err || user.length == 0) {
-            result(null);
-        }
-        else {
-            result(user[0]);
-        }
-    })
-}
-
-User.getByEmail = function(email, result) {
-    db.query("SELECT Password FROM nguoidung WHERE Email = ?", email, function(err, user) {
+User.login = function(email, result) {
+    db.query("SELECT * FROM nguoidung WHERE Email = ?", email, function(err, user) {
         if (err || user.length == 0) {
             result(null)
         } else {

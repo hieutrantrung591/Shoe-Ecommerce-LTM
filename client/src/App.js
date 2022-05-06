@@ -8,6 +8,7 @@ import Register from "./screens/register/Register"
 import Navbar from '../src/components/navbar/Navbar'
 import Footer from '../src/components/footer/Footer'
 import Dashboard from "./components/Dashboard.js"
+import Cart from './screens/cart/Cart'
 import './App.css'
 
 function App() {
@@ -20,10 +21,11 @@ function App() {
           <>
             <Navbar />
             <Route path="/" exact component={Home} />
-            <Route path="/about" exact component={About} />
-            <Route path="/contact" exact component={Contact} />
-            <Route path="/projects" exact component={Projects} />
-            <Route path="/dashboard" exact component={Dashboard} />
+            <Route path="/special" exact component={Contact} />
+            <Route path="/sale" exact component={Projects} />
+            <Route path="/men" exact component={Dashboard} />
+            <Route path="/women" exact component={About} />
+            <Route path="/cart" exact component={Cart} />
             <Footer />
           </>
         </Switch>
