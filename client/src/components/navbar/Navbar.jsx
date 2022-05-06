@@ -9,14 +9,12 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
   return (
-    <header>
-      <div className="bg-light py-2">
+    <header className="header">
+      <div className="bg-light py-2 header-top">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-12 text-right">
-              <span>HELP</span>
-              <span>Membership</span>
-            </div>
+          <div className="d-flex justify-content-end">
+            <span>HELP</span>
+            <span>Membership</span>
           </div>
         </div>
       </div>

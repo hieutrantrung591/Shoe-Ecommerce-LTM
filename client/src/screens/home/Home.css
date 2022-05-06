@@ -1,0 +1,11 @@
+.card-text {
+    line-height: 2rem; 
+    height: 6rem;
+    overflow: hidden;
+}
+
+.product-name {
+    line-height: 2.5rem;
+    height: 5rem;
+    overflow: hidden;
+}
