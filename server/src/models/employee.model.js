@@ -5,12 +5,10 @@ const Employee = function(employee) {
     this.NgaySinh = employee.NgaySinh;
     this.DiaChi = employee.DiaChi;
     this.ChucVu = employee.ChucVu;
-    this.Email = employee.Email;
-    this.Password = employee.Password;
 }
 
 Employee.getAll = function() {
-    db.query("SELECT MaNV, HoTen, NgaySinh, DiaChi, ChucVu, Email FROM nhanvien", function(err, employee) {
+    db.query("SELECT MaNV, HoTen, NgaySinh, DiaChi, ChucVu FROM nhanvien", function(err, employee) {
         if (err || employee.length == 0) {
             result(null);
         } else {
@@ -20,7 +18,7 @@ Employee.getAll = function() {
 }
 
 Employee.getById = function(id, result) {
-    db.query("SELECT MaNV, HoTen, NgaySinh, DiaChi, ChucVu, Email FROM nhanvien WHERE MaNV = ?", id, function(err, employee) {
+    db.query("SELECT MaNV, HoTen, NgaySinh, DiaChi, ChucVu FROM nhanvien WHERE MaNV = ?", id, function(err, employee) {
         if (err || employee.length == 0) {
             result(null)
         } else {
@@ -50,7 +48,7 @@ Employee.delete = function(id, result) {
 }
 
 Employee.update = function(data, result) {
-    db.update("UPDATE nhanvien SET HoTen = ?, NgaySinh = ?, DiaChi = ?, ChucVu = ? WHERE MaNV = ?", [data.HoTen, data.NgaySinh, data.DiaChi, data.ChucVu], function(err, employee) {
+    db.update("UPDATE nhanvien SET HoTen = ?, NgaySinh = ?, DiaChi = ?, ChucVu = ? WHERE MaNV = ?", [data.HoTen, data.NgaySinh, data.DiaChi, data.ChucVu, data.MaNV], function(err, employee) {
         if(err) {
             result(null);
         } else {

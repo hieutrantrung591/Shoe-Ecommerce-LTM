@@ -22,8 +22,6 @@ const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
  */
 let login = async(req, res) => {
     try {
-        debug(`Đang giả lập hành động đăng nhập thành công với Email: ${req.body.email} và Password: ${req.body.password}`);
-
         // Mình sẽ comment mô tả lại một số bước khi làm thực tế cho các bạn như sau nhé:
         // - Đầu tiên Kiểm tra xem email người dùng đã tồn tại trong hệ thống hay chưa?
         // - Nếu chưa tồn tại thì reject: User not found.

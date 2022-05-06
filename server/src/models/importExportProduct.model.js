@@ -46,4 +46,4 @@ ImportExportProduct.update = function(data, result) {
     })
 }
 
-module.exports = SizeProduct;
+module.exports = ImportExportProduct;

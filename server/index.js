@@ -1,6 +1,7 @@
 var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
+var dotenv = require("dotenv");
 // const _AuthMiddleWare = require("./app/common/_AuthMiddleWare");
 
 var app = express();
@@ -10,16 +11,34 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use(cors());
-
 /**
  * Allow Origin
  */
+const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
+const corsOptions = {
+    credentials: true, // This is important.
+    origin: (origin, callback) => {
+        if(whitelist.includes(origin))
+            return callback(null, true)
+        callback(new Error('Not allowed by CORS'));
+    }
+}
+ 
+app.use(cors(corsOptions));
+
 app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    next();
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Origin", 'http://localhost:3000');
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+    );
+    if ("OPTIONS" == req.method) {
+      res.send(200);
+    } else {
+      next();
+    }
 });
 
 /**
@@ -39,7 +58,9 @@ var employeeRouter = require("./src/routes/employee.router");
 var invoiceProductRouter = require("./src/routes/invoiceProduct.router");
 var importExportProductRouter = require("./src/routes/importExportProduct.router")
 var customerRouter = require("./src/routes/customer.router");
+var userRouter = require("./src/routes/user.router");
 
+app.use('/', userRouter);
 app.use('/', brandRouter);
 app.use('/', categoryRouter);
 app.use('/', customerRouter);

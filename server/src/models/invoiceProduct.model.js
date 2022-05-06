@@ -46,4 +46,4 @@ InvoiceProduct.update = function(data, result) {
     })
 }
 
-module.exports = SizeProduct;
+module.exports = InvoiceProduct;
