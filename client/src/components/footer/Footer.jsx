@@ -5,7 +5,7 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 
-function Footer() {
+const Footer = () => {
     return (
         <footer className="pt-5 mt-auto">
             <div className="container">
@@ -57,7 +57,7 @@ function Footer() {
                 </div>
             </div>
         </footer>
-    );
+    )
 }
 
-export default Footer;
+export default Footer
