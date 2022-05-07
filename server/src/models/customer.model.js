@@ -7,7 +7,7 @@ const Customer = function(customer) {
     this.MaNV = customer.MaNV;
 }
 
-Customer.getAll = function() {
+Customer.getAll = function(result) {
     db.query("SELECT * FROM khachhang", function(err, customer) {
         if (err || customer.length == 0) {
             result(null);

@@ -1,4 +1,4 @@
-var Customer = require("../models/customer.invoice")
+var Customer = require("../models/customer.model")
 
 exports.getList = function(req, res) {
     Customer.getAll(function(data) {
