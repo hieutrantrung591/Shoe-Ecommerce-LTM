@@ -31,7 +31,7 @@ Warehouse.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: warehouse.insertId, ...data });
         }
     });
 }

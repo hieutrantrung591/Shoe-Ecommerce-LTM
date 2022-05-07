@@ -7,6 +7,8 @@ router.get("/image/list", imageController.get_list);
 
 router.get("/image/detail/:id", imageController.detail);
 
+router.get("/image/product/:id", imageController.get_images_product);
+
 router.post("/image/add", imageController.add_image);
 
 router.delete("/image/delete/:id", imageController.delete_image);

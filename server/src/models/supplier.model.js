@@ -33,7 +33,7 @@ Supplier.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: supplier.insertId, ...data });
         }
     });
 }

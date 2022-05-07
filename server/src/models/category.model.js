@@ -30,7 +30,7 @@ Category.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: category.insertId, ...data });
         }
     })
 }

@@ -21,7 +21,7 @@ InvoiceProduct.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: invoiceProduct.insertId, ...data });
         }
     })
 }

@@ -31,7 +31,7 @@ Invoice.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: invoice.insertId, ...data });
         }
     })
 }

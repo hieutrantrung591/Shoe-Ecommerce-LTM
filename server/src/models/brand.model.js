@@ -29,7 +29,7 @@ Brand.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: brand.insertId, ...data });
         }
     })
 }

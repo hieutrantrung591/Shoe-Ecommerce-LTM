@@ -29,7 +29,7 @@ Size.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: size.insertId, ...data });
         }
     })
 }

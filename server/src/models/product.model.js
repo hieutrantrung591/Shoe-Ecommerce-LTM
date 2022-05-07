@@ -34,7 +34,7 @@ Product.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: product.insertId, ...data });
         }
     })
 }

@@ -32,7 +32,7 @@ ImportExport.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: importExport.insertId, ...data });
         }
     })
 }

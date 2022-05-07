@@ -31,7 +31,7 @@ Image.create = function(data, result) {
         if (err) {
             result(null);
         } else {
-            result({ ...data });
+            result({ id: image.insertId, ...data });
         }
     });
 }
@@ -52,6 +52,16 @@ Image.update = function(data, result) {
             result(null);
         } else {
             result(data);
+        }
+    });
+}
+
+Image.getImagesOfProduct = function(id, result) {
+    db.query("SELECT * FROM hinhanh WHERE MaSP = ? AND IsThumbnail = false", id, function(err, image) {
+        if (err || image.length == 0) {
+            result(null);
+        } else {
+            result(image);
         }
     });
 }

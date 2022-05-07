@@ -35,3 +35,9 @@ exports.update_image = function(req, res) {
         res.send({ result: response });
     })
 }
+
+exports.get_images_product = function(req, res) {
+    Image.getImagesOfProduct(req.params.id, function(response) {
+        res.send({ result: response });
+    })
+}

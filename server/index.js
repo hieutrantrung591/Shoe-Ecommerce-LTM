@@ -14,33 +14,22 @@ app.use(bodyParser.json());
 /**
  * Allow Origin
  */
-const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:8080'];
+const whitelist = ['http://localhost:3000', 'http://localhost:3001'];
 const corsOptions = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
-    if (whitelist.includes(origin))
-      return callback(null, true)
-    callback(new Error('Not allowed by CORS'));
-  },
-  methods: 'GET, PUT, POST, DELETE'
-}
-
-app.use(cors(corsOptions));
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Origin", whitelist);
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
-  );
-  if ("OPTIONS" == req.method) {
-    res.send(200);
-  } else {
-    next();
+    // for bypassing postman req with no origin
+    if (!origin) {
+      return callback(null, true);
+    }
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
   }
-});
+}
+app.use(cors(corsOptions));
 
 /**
  * Routers
