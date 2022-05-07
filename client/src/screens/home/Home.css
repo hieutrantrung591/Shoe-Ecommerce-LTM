@@ -1,11 +1,15 @@
 .card-text {
-    line-height: 2rem; 
-    height: 6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-name {
-    line-height: 2.5rem;
     height: 5rem;
-    overflow: hidden;
+}
+
+.product-thumbnail {
+    background-size: cover;
 }
