@@ -42,7 +42,7 @@ const Home = () => {
       </section>
 
       <section id="products-1">
-        <div className="container py-5">
+      <div className="container py-5">
           <div className="row text-center py-3">
             <div className="col-lg-6 m-auto">
               <h1 className="text-uppercase">Blazer Collection</h1>
@@ -77,10 +77,12 @@ const Home = () => {
                         <i className="text-muted fa fa-star"></i>
                         <i className="text-muted fa fa-star"></i>
                       </li>
-                      <li className="text-muted text-right">{product.DonGia}</li>
+                      <li className="text-muted text-right product-price">
+                        {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.DonGia)}
+                      </li>
                     </ul>
                     <div className="product-name my-2">
-                      <Link to="/product" className="h2 text-decoration-none text-dark">
+                      <Link to={`/product/${product.MaSP}`} className="h2 text-decoration-none text-dark">
                         {product.Ten}
                       </Link>
                     </div>
@@ -136,10 +138,12 @@ const Home = () => {
                         <i className="text-muted fa fa-star"></i>
                         <i className="text-muted fa fa-star"></i>
                       </li>
-                      <li className="text-muted text-right">{product.DonGia}</li>
+                      <li className="text-muted text-right product-price">
+                        {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.DonGia)}
+                      </li>
                     </ul>
                     <div className="product-name my-2">
-                      <Link to="/product" className="h2 text-decoration-none text-dark">
+                      <Link to={`/product/${product.MaSP}`} className="h2 text-decoration-none text-dark">
                         {product.Ten}
                       </Link>
                     </div>

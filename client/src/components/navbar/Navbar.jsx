@@ -31,16 +31,16 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav d-flex align-items-center justify-content-center flex-grow-1">
               <li className="nav-item">
-                <NavLink to="/men" activeClassName="active">Men</NavLink>
+                <NavLink to="/shop/men" activeClassName="active">Men</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/women" activeClassName="active">Women</NavLink>
+                <NavLink to="/shop/women" activeClassName="active">Women</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/special" activeClassName="active">Special</NavLink>
+                <NavLink to="/shop/special" activeClassName="active">Special</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/sale" activeClassName="active">Sale</NavLink>
+                <NavLink to="/shop/sale" activeClassName="active">Sale</NavLink>
               </li>
             </ul>
 

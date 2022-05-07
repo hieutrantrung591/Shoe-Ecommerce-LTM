@@ -63,8 +63,7 @@ button.quantity-modifier {
 }
 
 button.quantity-modifier:hover {
-    background: darken(#f3f3f3, 10%);
-    color: darken(#888, 20%);
+    background-color: rgb(225, 225, 225);
 }
 
 input.quantity-display{
