@@ -9,4 +9,6 @@ router.post('/login', authController.Login);
 
 router.post('/user/add', userController.addUser)
 
+router.post("/refresh-token", authController.RefreshToken);
+
 module.exports = router;

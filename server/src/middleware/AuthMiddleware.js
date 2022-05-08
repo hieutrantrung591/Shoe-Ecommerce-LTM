@@ -1,13 +1,14 @@
 // Hàm bảo vệ các api cần bảo mật
+const dotenv = require('dotenv');
+dotenv.config();
 const jwtHelper = require('./jwtHelper.js');
-const debug = console.log.bind(console);
 
 // Mã secretKey này phải được bảo mật tuyệt đối, các bạn có thể lưu vào biến môi trường hoặc file
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
 
 let isAuth = async(req, res, next) => {
     // Lấy token được gửi lên từ phía client, thông thường tốt nhất là các bạn nên truyền token vào header
-    const tokenFromClient = req.body.token || req.query.token || req.headers["x-access-token"];
+    const tokenFromClient = req.body.token;
 
     if (tokenFromClient) {
         // Nếu tồn tại token
@@ -22,8 +23,6 @@ let isAuth = async(req, res, next) => {
             next();
         } catch (error) {
             // Nếu giải mã gặp lỗi: Không đúng, hết hạn...etc:
-            // Lưu ý trong dự án thực tế hãy bỏ dòng debug bên dưới, mình để đây để debug lỗi cho các bạn xem thôi
-            debug("Error while verify token:", error);
             return res.status(401).json({
                 message: 'Unauthorized.',
             });

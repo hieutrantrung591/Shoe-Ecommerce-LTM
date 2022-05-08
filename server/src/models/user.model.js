@@ -5,7 +5,7 @@ const User = function(user) {
     this.Password = user.Password;
 }
 
-User.getAll = function() {
+User.getAll = function(result) {
     db.query("SELECT MaND, Email FROM nguoidung", function(err, user) {
         if (err || user.length == 0) {
             result(null);
@@ -51,6 +51,16 @@ User.update = function(data, result) {
             result(null);
         } else {
             result(data);
+        }
+    })
+}
+
+User.updateToken = function(data, result) {
+    db.query("UPDATE nguoidung SET refresh_token = ? WHERE MaND = ?", [data.RefreshToken, data.MaND], function(err, user) {
+        if(err) {
+            result(null);
+        } else {
+            result("Update Refresh Token success");
         }
     })
 }

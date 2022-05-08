@@ -7,7 +7,6 @@ let generateToken = (user, secretSignature, tokenLife) => {
         // Định nghĩa những thông tin của user mà bạn muốn lưu vào token ở đây
         const userData = {
             _id: user.id,
-            name: user.name,
             email: user.email,
         }
 
@@ -21,7 +20,7 @@ let generateToken = (user, secretSignature, tokenLife) => {
             },
             (error, token) => {
                 if (error) {
-                    return reject(err);
+                    return reject(error);
                 }
                 resolve(token);
             }

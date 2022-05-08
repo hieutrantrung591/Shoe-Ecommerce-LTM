@@ -1,43 +1,19 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from "axios"
 
-import Table from '../components/table/Table'
-
-import customerList from '../assets/JsonData/customers-list.json'
-
-const customerTableHead = [
-	'#',
-	'Name',
-	'Address',
-	'Phone'
-]
-
-const renderHead = (item, index) => <th key={index}>{item}</th>
-
-const renderBody = (item, index) => (
-	<tr key={index}>
-		<td>{item.MaKH}</td>
-		<td>{item.DiaChi}</td>
-		<td>{item.SDT}</td>
-		<td>{item.MaNV}</td>
-	</tr>
-)
-
 const Customers = () => {
-	const [customers, setCustomers] = useState([])
+	const [customers, setCustomers] = useState([]);
 
 	useEffect(() => {
-    getCustomers();
-  }, [])
+		getCustomers();
+	}, [])
 
 	const getCustomers = async () => {
 		const response = await axios.get(`http://localhost:8080/customer/list`)
 		setCustomers(response.data.result)
-		console.log(response.data.result)
-		console.log(customerList)
 	}
-	
+
 	return (
 		<div>
 			<h2 className="page-header">
@@ -47,13 +23,26 @@ const Customers = () => {
 				<div className="col-12">
 					<div className="card">
 						<div className="card__body">
-							<Table
-								limit='10'
-								headData={customerTableHead}
-								renderHead={(item, index) => renderHead(item, index)}
-								bodyData={customers}
-								renderBody={(item, index) => renderBody(item, index)}
-							/>
+							<table className="table">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>Name</th>
+										<th>Address</th>
+										<th>Phone</th>
+									</tr>
+								</thead>
+								<tbody>
+									{customers.map((customer, index) => (
+										<tr key={customer.MaKH}>
+											<td>{index + 1}</td>
+											<td>{customer.HoTen}</td>
+											<td>{customer.DiaChi}</td>
+											<td>{customer.SDT}</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>

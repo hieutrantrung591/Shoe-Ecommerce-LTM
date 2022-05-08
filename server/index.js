@@ -2,10 +2,11 @@ var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
 var dotenv = require("dotenv");
-// const _AuthMiddleWare = require("./app/common/_AuthMiddleWare");
+const AuthMiddleWare = require("./src/middleware/AuthMiddleware");
 
 var app = express();
 
+app.use(express.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
@@ -50,11 +51,11 @@ var importExportProductRouter = require("./src/routes/importExportProduct.router
 var customerRouter = require("./src/routes/customer.router");
 var userRouter = require("./src/routes/user.router");
 
+
 app.use('/', userRouter);
 app.use('/', brandRouter);
 app.use('/', categoryRouter);
 app.use('/', customerRouter);
-app.use('/', employeeRouter);
 app.use('/', imageRouter);
 app.use('/', importExportRouter);
 app.use('/', importExportProductRouter);
@@ -65,8 +66,11 @@ app.use('/', sizeRouter);
 app.use('/', sizeProductRouter);
 app.use('/', supplierRouter);
 app.use('/', warehouseRouter);
+app.use('/', employeeRouter);
 
-// app.use(_AuthMiddleWare.isAuth);
+app.use(AuthMiddleWare.isAuth);
+
+
 // cac router nam phia sau cai middleware deu phai check token hop le
 
 const PORT = process.env.PORT || 8080;

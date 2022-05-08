@@ -8,7 +8,7 @@ const Employee = function (employee) {
     this.SDT = employee.SDT;
 }
 
-Employee.getAll = function () {
+Employee.getAll = function (result) {
     db.query("SELECT MaNV, HoTen, NgaySinh, DiaChi, ChucVu, SDT FROM nhanvien", function (err, employee) {
         if (err || employee.length == 0) {
             result(null);
