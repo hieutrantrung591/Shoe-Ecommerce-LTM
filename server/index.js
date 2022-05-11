@@ -51,7 +51,6 @@ var importExportProductRouter = require("./src/routes/importExportProduct.router
 var customerRouter = require("./src/routes/customer.router");
 var userRouter = require("./src/routes/user.router");
 
-
 app.use('/', userRouter);
 app.use('/', brandRouter);
 app.use('/', categoryRouter);

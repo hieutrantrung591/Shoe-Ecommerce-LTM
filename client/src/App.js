@@ -7,6 +7,7 @@ import Register from "./screens/register/Register"
 import Navbar from '../src/components/navbar/Navbar'
 import Footer from '../src/components/footer/Footer'
 import Cart from './screens/cart/Cart'
+import Search from './screens/search/Search'
 import ScrollToTop from "./components/wrapper/ScrollToTop";
 import './App.css'
 
@@ -23,6 +24,7 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/product/:id" component={Product} />
               <Route path="/shop/:id" component={Shop} />
+              <Route path="/search" component={Search} />
               <Route path="/cart" exact component={Cart} />
               <Footer />
             </>

@@ -168,12 +168,12 @@ const Home = () => {
           <h3>TRENDING</h3>
           <div className="row">
             <div className="col-6">
-              <Link to="/men">
+              <Link to="/shop/men">
                 <img src={image_4} alt="home 4" width="600" />
               </Link>
             </div>
             <div className="col-6">
-              <Link to="/women">
+              <Link to="/shop/women">
                 <div className="col-6">
                   <img src={image_5} alt="home 5" width="600" />
                 </div>

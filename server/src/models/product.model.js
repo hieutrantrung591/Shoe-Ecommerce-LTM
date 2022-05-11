@@ -59,4 +59,14 @@ Product.update = function(data, result) {
     })
 }
 
+Product.search = function(data, result) {
+    db.query("SELECT * FROM products WHERE", function(err, product) {
+        if (err) {
+            result(null);
+        } else {
+            result(data);
+        }
+    })
+}
+
 module.exports = Product;

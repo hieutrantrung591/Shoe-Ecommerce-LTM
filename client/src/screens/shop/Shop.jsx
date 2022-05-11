@@ -27,11 +27,11 @@ const Shop = () => {
 	return (
 		<div className="container my-4">
 			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item">
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item">
 						<Link to="/">Home</Link></li>
-					<li class="breadcrumb-item">Category</li>
-					<li class="breadcrumb-item active" aria-current="page">{params.id}</li>
+					<li className="breadcrumb-item">Category</li>
+					<li className="breadcrumb-item active" aria-current="page">{params.id}</li>
 				</ol>
 			</nav>
 

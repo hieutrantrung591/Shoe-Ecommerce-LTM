@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import axios from "axios"
 import './Product.css'
 import QuantityPicker from './QuantityPicker'
@@ -7,6 +7,7 @@ import QuantityPicker from './QuantityPicker'
 const Product = () => {
 	const [product, setProduct] = useState({});
 	const [images, setImages] = useState([]);
+	const history = useHistory();
 
 	const params = useParams();
 
@@ -24,6 +25,10 @@ const Product = () => {
 		getProduct();
 		getImages();
 	}, [getProduct, getImages]);
+
+	const addToCart = () => {
+		history.push('/cart');
+	}
 
 	return (
 		<div className="container my-5">
@@ -56,7 +61,7 @@ const Product = () => {
 					</div>
 					<hr/>
 					<div className="d-flex flex-column my-3">
-						<button className="btn my-1 btn-product btn-add-cart">Add To Cart</button>
+						<button onClick={addToCart}  className="btn my-1 btn-product btn-add-cart">Add To Cart</button>
 						<button className="btn btn-outline-dark my-1 btn-product bth-favorite">Favorite</button>
 					</div>
 					<hr/>
