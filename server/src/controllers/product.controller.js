@@ -35,3 +35,11 @@ exports.updateProduct = function (req, res) {
         res.send({ result: response });
     })
 }
+
+exports.searchProduct = function (req, res) {
+    var data = req.body;
+
+    Product.search(data, function(response) {
+        res.send({ result: response });
+    })
+}

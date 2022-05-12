@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/image/logo/logo.png';
 import './Navbar.css';
@@ -8,6 +8,8 @@ import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
+  const [search, setSearch] = useState('')
+
   return (
     <header className="header">
       <div className="bg-light header-top">
@@ -46,10 +48,17 @@ const Navbar = () => {
 
             <div className="d-flex align-items-center justify-content-center flex-grow-1 input-search">
               <form className="d-flex align-items-center form-search flex-grow-1">
-                <span className="input-icon">
+                <button type="submit" className="input-icon btn">
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </span>
-                <input type="search" className="form-control shadow-none" placeholder="Search" aria-label="Search" />
+                </button>
+                <input 
+                  type="search" 
+                  className="form-control shadow-none" 
+                  placeholder="Search" 
+                  aria-label="Search" 
+                  value={search}
+                  onChange={(event) => { setSearch(event.target.value) }}
+                />
               </form>
 
               <button type="button" className="btn ms-2 me-2">

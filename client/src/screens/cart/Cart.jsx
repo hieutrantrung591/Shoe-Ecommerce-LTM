@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from "axios"
 import product_1 from '../../assets/image/products/nike-blazer-low-1.png'
 
 const Cart = () => {
 	const [products, setProducts] = useState([])
   const [images, setImages] = useState([])
-	const history = useHistory();
 
 	useEffect(() => {
     getProducts();

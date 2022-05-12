@@ -1,5 +1,5 @@
 const db = require("../config/connect.js");
-const Product = function(product) {
+const Product = function (product) {
     this.MaSP = product.MaSP;
     this.Ten = product.Ten;
     this.DonGia = product.DonGia;
@@ -9,8 +9,8 @@ const Product = function(product) {
     this.MaTH = product.MaTH;
 }
 
-Product.getAll = function(result) {
-    db.query("SELECT * FROM sanpham", function(err, product) {
+Product.getAll = function (result) {
+    db.query("SELECT * FROM sanpham", function (err, product) {
         if (err || product.length == 0) {
             result(null);
         } else {
@@ -19,8 +19,8 @@ Product.getAll = function(result) {
     })
 }
 
-Product.getById = function(id, result) {
-    db.query("SELECT * FROM sanpham WHERE MaSP = ?", id, function(err, product) {
+Product.getById = function (id, result) {
+    db.query("SELECT * FROM sanpham WHERE MaSP = ?", id, function (err, product) {
         if (err || product.length == 0) {
             result(null);
         } else {
@@ -29,8 +29,8 @@ Product.getById = function(id, result) {
     })
 }
 
-Product.create = function(data, result) {
-    db.query("INSERT INTO sanpham SET ?", data, function(err, product) {
+Product.create = function (data, result) {
+    db.query("INSERT INTO sanpham SET ?", data, function (err, product) {
         if (err) {
             result(null);
         } else {
@@ -39,8 +39,8 @@ Product.create = function(data, result) {
     })
 }
 
-Product.delete = function(id, result) {
-    db.query("DELETE FROM sanpham WHERE MaSP = ?", id, function(err, product) {
+Product.delete = function (id, result) {
+    db.query("DELETE FROM sanpham WHERE MaSP = ?", id, function (err, product) {
         if (err) {
             result(null);
         } else {
@@ -49,22 +49,22 @@ Product.delete = function(id, result) {
     })
 }
 
-Product.update = function(data, result) {
-    db.query("UPDATE sanpham SET Ten = ?, DonGia = ?, MoTa = ?, MaDM = ?, MaNCC = ?, MaTH = ? WHERE MaSP = ?", [data.Ten, data.DonGia, data.MoTa, data.MaDM, data.MaNCC, data.MaTH, data.MaSP], function(err, product) {
+Product.update = function (data, result) {
+    db.query("UPDATE sanpham SET Ten = ?, DonGia = ?, MoTa = ?, MaDM = ?, MaNCC = ?, MaTH = ? WHERE MaSP = ?", [data.Ten, data.DonGia, data.MoTa, data.MaDM, data.MaNCC, data.MaTH, data.MaSP], function (err, product) {
         if (err) {
             result(null);
         } else {
-            result(data);
+            result(product);
         }
     })
 }
 
-Product.search = function(data, result) {
-    db.query("SELECT * FROM products WHERE", function(err, product) {
+Product.search = function (data, result) {
+    db.query("SELECT * FROM sanpham WHERE Ten LIKE ?", "%" + data.keyword + "%", function (err, product) {
         if (err) {
             result(null);
         } else {
-            result(data);
+            result(product);
         }
     })
 }

@@ -3,39 +3,58 @@ import { Link } from 'react-router-dom';
 import axios from "axios"
 
 const Search = () => {
-	const[products, setProducts] = useState([])
-	const[images, setImages] = useState([])
+	const [products, setProducts] = useState([])
+	const [images, setImages] = useState([])
+	const [keyword, setKeyword] = useState('')
 
 	useEffect(() => {
-    getProducts();
-    getImages();
-  }, [])
-
-	const getProducts = async () => {
-		const response = await axios.get('http://localhost:8080/product/list');
-		setProducts(response.data.result);
-	}
+		getImages();
+		searchProduct();
+	}, [])
 
 	const getImages = async () => {
 		const response = await axios.get('http://localhost:8080/image/list');
 		setImages(response.data.result);
 	}
 
+	const searchProduct = async () => {
+		const response = await axios.post('http://localhost:8080/product/search', {
+			keyword: keyword
+		});
+		setProducts(response.data.result);
+	}
+
+	const filtered = products.filter((value) => {
+		if (keyword === '' || value.Ten.toLowerCase().includes(keyword.toLowerCase())) {
+			return value;
+		}
+	})
+
 	return (
 		<div className="container-fluid">
 			<div className="search-bar bg-light py-3">
 				<div className="container">
-					<form>
-						<label>Tên sản phẩm</label>
-						<input type="text" />
+					<form onSubmit={searchProduct}>
+						<label>Product name</label>
+						<input
+							type="text"
+							className="form-control form-control-user py-2"
+							placeholder="Enter keyword"
+							value={keyword}
+							onChange={(event) => { setKeyword(event.target.value) }}
+						/>
+						<button type="submit" className="btn btn-dark btn-lg btn-block my-2">Search</button>
 					</form>
 				</div>
 			</div>
 			<div className="container">
-				<div className="row py-5">
-					{products.map((product, index) => (
-						<div className="col-12 col-md-4 mb-4" key={product.MaSP}>
-							<div className="card h-100">
+				<div className="row pt-4">
+					<h3>Found <span className="text-red">{filtered.length}</span> result(s)</h3>
+				</div>
+				<div className="row py-2">
+					{filtered.map((product, index) => (
+						<div className="col-12 col-md-4 mb-4">
+							<div className="card h-100" key={product.MaSP}>
 								{images.map((image, index) => {
 									if (image.IsThumbnail === 1 && image.MaSP === product.MaSP) {
 										return (
